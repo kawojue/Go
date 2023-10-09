@@ -7,5 +7,5 @@ import (
 
 func main() {
 	fmt.Println(strings.ToLower(fmt.Sprintf("%s", "Kawojue Raheem")))
-	fmt.Println(strings.ToUpper(fmt.Sprint("I love Go!")))
+	fmt.Println(strings.ToUpper("I love Go!"))
 }
