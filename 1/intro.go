@@ -1,6 +1,17 @@
 package main
-import "fmt"
+
+import (
+	"fmt"
+)
+
+var name = "Kawojue" // outside main scope
 
 func main() {
-	fmt.Println("Hello, World!")
+	age := 100
+
+	var num uint8 = 255
+
+	fmt.Println(num, age)
+	fmt.Print(num, "\n")
+	fmt.Println(name)
 }
