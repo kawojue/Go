@@ -2,24 +2,11 @@ package main
 
 import (
 	"fmt"
-	"sync"
 )
 
-var wg sync.WaitGroup
-
 func main() {
-	dance := dance("Kawojue")
-
-	wg.Add(1)
-
-	go func() {
-		defer wg.Done()
-		happy()
-	}()
-
-	fmt.Println(dance)
-
-	wg.Wait()
+	happy()
+	fmt.Println(dance("Kawojue"))
 }
 
 func dance(name string) string {
