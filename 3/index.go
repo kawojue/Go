@@ -5,8 +5,10 @@ import (
 )
 
 func main() {
+	dance := dance("Kawojue")
+
 	happy()
-	fmt.Print(dance("Kawojue"))
+	fmt.Print(dance)
 }
 
 func dance(name string) string {
