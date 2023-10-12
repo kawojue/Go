@@ -16,6 +16,9 @@ func main() {
 	fmt.Printf("Array: %v\nLength: %d\n", anyArr, len(anyArr))
 
 	// slices
-	scores := []int{}
+	scores := []int{1, 2, 3, 5, 6}
 	fmt.Println(scores)
+	fmt.Println(scores[0:])  // first index - last index
+	fmt.Println(scores[2:3]) // second index - third index
+	fmt.Println(scores[:2])  // first index - second index
 }
