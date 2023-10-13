@@ -25,8 +25,8 @@ func main() {
 
 	people := []Person{
 		{"Raheem", 20},
-		{"Precios", 21},
-		{"My baby", 21},
+		{"Mary", 21},
+		{"Muyiwa", 19},
 	}
 
 	sort.Sort(ByAge(people))
