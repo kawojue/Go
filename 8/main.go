@@ -19,7 +19,7 @@ func main() {
 		if age < 18 {
 			fmt.Println("You're underage.")
 		} else if age >= 32 {
-			fmt.Println("You should get married.")
+			fmt.Println("Comrade, you should be married by now.")
 		} else {
 			fmt.Println("Have fun!")
 		}
