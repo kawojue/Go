@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-func getInitals(name string) (f string, l string) {
+func formatNames(name string) (f string, l string) {
 	names := strings.Split(name, " ")
 
 	formattedNames := []string{}
@@ -25,7 +25,7 @@ func getInitals(name string) (f string, l string) {
 }
 
 func main() {
-	firstName, lastName := getInitals("raheem kawojue")
+	firstName, lastName := formatNames("raheem kawojue")
 
 	fmt.Println(firstName, lastName)
 }
