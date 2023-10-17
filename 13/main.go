@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 type Amount struct {
- qty   int
+	qty   int
 	price float64
 }
 
