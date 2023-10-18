@@ -3,8 +3,8 @@ package main
 import "fmt"
 
 type Amount struct {
-	qty   int
 	price float64
+	qty   int
 }
 
 func main() {
@@ -24,5 +24,4 @@ func main() {
 	}
 
 	fmt.Printf("Total: $%g\n", total)
-
 }
