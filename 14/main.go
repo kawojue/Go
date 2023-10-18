@@ -3,8 +3,13 @@ package main
 import "fmt"
 
 // Pass-by-value
-func modifyValue(surname string) {
-	surname = "Raheem"
+func modifyValue(lastName string) {
+	lastName = "Raheem"
+}
+
+func updateName(name string) string {
+	name = "Muyiwa"
+	return name
 }
 
 // Pass-by-reference (Passing a Pointer)
@@ -13,15 +18,19 @@ func modifyRef(name *string) {
 }
 
 func main() {
-	surname := "Kawojue"
-	modifyValue(surname)
-
-	fmt.Println(surname) // Kawojue
+	lastName := "Kawojue"
+	modifyValue(lastName)
+	fmt.Println(lastName) // Kawojue
 
 	fmt.Println()
 
-	firstName := "Raheem"
-	modifyRef(&firstName)
+	middleName := "Kawojue"
+	middleName = updateName(middleName)
+	fmt.Println(middleName) // Muyiwa
 
-	fmt.Println(firstName)
+	fmt.Println()
+
+	firstName := "Kawojue"
+	modifyRef(&firstName)
+	fmt.Println(firstName) // Raheem
 }
