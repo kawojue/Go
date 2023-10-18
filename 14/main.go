@@ -2,16 +2,26 @@ package main
 
 import "fmt"
 
-func updateName(name string) {
-	name = "Raheem"
+// Pass-by-value
+func modifyValue(surname string) {
+	surname = "Raheem"
+}
 
-	fmt.Println(name)
+// Pass-by-reference (Passing a Pointer)
+func modifyRef(name *string) {
+	*name = "Raheem"
 }
 
 func main() {
-	name := "Kawojue"
+	surname := "Kawojue"
+	modifyValue(surname)
 
-	updateName(name)
+	fmt.Println(surname) // Kawojue
 
-	fmt.Println(name)
+	fmt.Println()
+
+	firstName := "Raheem"
+	modifyRef(&firstName)
+
+	fmt.Println(firstName)
 }
