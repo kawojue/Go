@@ -54,7 +54,6 @@ func (bill Bill) editName(name string) Bill {
 		tip:   bill.tip,
 		items: bill.items,
 	}
-
 	return b
 }
 
