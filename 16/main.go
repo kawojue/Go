@@ -8,10 +8,10 @@ import (
 type Bill struct {
 	name  string
 	items map[string]float64
-	tip   *int64
+	tip   *float64
 }
 
-func newBill(name string, items map[string]float64, tip *int64) Bill {
+func newBill(name string, items map[string]float64, tip *float64) Bill {
 	return Bill{
 		items: items,
 		name:  name,
@@ -32,7 +32,7 @@ func main() {
 
 	fmt.Println()
 
-	tipValue := int64(1)
+	var tipValue float64 = 0.33
 	bill2 := newBill("Kawojue", map[string]float64{"yam": 7.99}, &tipValue)
 	fmt.Printf("Name: %s\nItems: %v\nTip: %v\n", bill2.name, bill2.items, *bill2.tip)
 
@@ -46,6 +46,8 @@ func main() {
 	fmt.Println()
 
 	bill1.billing()
+
+	bill2.billing()
 }
 
 func (bill Bill) editName(name string) Bill {
@@ -76,5 +78,9 @@ func (bill Bill) billing() {
 	}
 
 	fmt.Println(breakdowns)
-	fmt.Printf("Total: $%v", total)
+	if bill.tip != nil {
+		fmt.Printf("Total: $%v", total+*bill.tip)
+	} else {
+		fmt.Printf("Total: $%v", total)
+	}
 }
