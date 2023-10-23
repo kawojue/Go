@@ -47,6 +47,8 @@ func main() {
 
 	bill1.billing()
 
+	fmt.Println()
+
 	bill2.billing()
 }
 
@@ -79,8 +81,8 @@ func (bill Bill) billing() {
 
 	fmt.Println(breakdowns)
 	if bill.tip != nil {
-		fmt.Printf("Total: $%v", total+*bill.tip)
+		fmt.Printf("Total: $%v\n", total+*bill.tip)
 	} else {
-		fmt.Printf("Total: $%v", total)
+		fmt.Printf("Total: $%v\n", total)
 	}
 }
