@@ -1,6 +1,7 @@
 package main
 
-type Person struct {}
+type Person struct {
+}
 
 func newPerson() {}
 
