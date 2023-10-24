@@ -36,8 +36,6 @@ func main() {
 	bill1 := newBill("Raheem", map[string]float64{"egg": 5.99, "bread": 3.69}, nil)
 	fmt.Printf("%s\n%v\n%v\n", bill1.name, bill1.items, bill1.tip)
 
-	fmt.Println()
-
 	var tipValue1 float64 = 0.33
 	bill2 := newBill("Kawojue", map[string]float64{"yam": 7.99}, &tipValue1)
 	fmt.Printf("Name: %s\nItems: %v\nTip: %v\n", bill2.name, bill2.items, *bill2.tip)
@@ -45,23 +43,13 @@ func main() {
 	editBill1 := bill1.editName("muyiwa raheem")
 	fmt.Println(editBill1.name)
 
-	fmt.Println()
-
-	fmt.Println()
 	var updatedTip float64 = 0.64
-	editBill1.updateTip(&updatedTip)
-	fmt.Println(editBill1.tip)
-
-	fmt.Println()
+	bill1.updateTip(&updatedTip)
+	fmt.Println(*bill1.tip)
 
 	fmt.Println(editBill1.formatName())
 
-	fmt.Println()
-
 	bill1.billing()
-
-	fmt.Println()
-
 	bill2.billing()
 }
 
