@@ -20,10 +20,16 @@ func newBill(name string, items map[string]float64, tip *float64) Bill {
 }
 
 func toTitle(s string) string {
-	splitted := strings.Split(s, "")
-	formatted := strings.ToUpper(splitted[0]) + strings.Join(splitted[1:], "")
+	titledString := []string{}
 
-	return formatted
+	names := strings.Split(s, " ")
+	for _, name := range names {
+		splittedName := strings.Split(name, "")
+		formatted := strings.ToUpper(splittedName[0]) + strings.Join(splittedName[1:], "")
+		titledString = append(titledString, formatted)
+	}
+
+	return strings.Join(titledString, " ")
 }
 
 func main() {
@@ -36,7 +42,7 @@ func main() {
 	bill2 := newBill("Kawojue", map[string]float64{"yam": 7.99}, &tipValue)
 	fmt.Printf("Name: %s\nItems: %v\nTip: %v\n", bill2.name, bill2.items, *bill2.tip)
 
-	editBill1 := bill1.editName("muyiwa")
+	editBill1 := bill1.editName("muyiwa raheem")
 	fmt.Println(editBill1.name)
 
 	fmt.Println()
