@@ -22,9 +22,11 @@ func main() {
 	c1 := Circle{23}
 	r1 := Rect{4, 8}
 
-	shape := []Shape{c1, r1}
+	shapes := []Shape{c1, r1}
 
-	fmt.Println(shape[1].area())
+	for _, shape := range shapes {
+		printArea(shape)
+	}
 }
 
 func (c Circle) area() float64 {
@@ -33,4 +35,8 @@ func (c Circle) area() float64 {
 
 func (r Rect) area() float64 {
 	return r.width * r.height
+}
+
+func printArea(shape Shape) {
+	fmt.Println(shape.area())
 }
