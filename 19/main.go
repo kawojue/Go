@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	text, _ := getInput("What? ", bufio.NewReader(os.Stdin))
+	text, _ := getInput("Input something: ", bufio.NewReader(os.Stdin))
 	fmt.Println(text)
 
 	promptOptions()
@@ -18,7 +18,7 @@ func main() {
 func promptOptions() {
 	reader := bufio.NewReader(os.Stdin)
 
-	option, _ := getInput("How old are you?", reader)
+	option, _ := getInput("How old are you? ", reader)
 	age, _ := strconv.ParseInt(option, 10, 64)
 
 	switch {
