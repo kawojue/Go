@@ -8,17 +8,13 @@ import (
 )
 
 func main() {
-	text, _ := input("What? ")
+	text, _ := getInput("What? ", bufio.NewReader(os.Stdin))
 	fmt.Println(text)
 }
 
-func input(question string) (string, error) {
-	reader := bufio.NewReader(os.Stdin)
-	if question != "" {
-		fmt.Print(question)
-	}
+func getInput(prompt string, r *bufio.Reader) (string, error) {
+	fmt.Print(prompt)
+	input, err := r.ReadString('\n')
 
-	text, err := reader.ReadString('\n')
-
-	return strings.TrimSpace(text), err
+	return strings.TrimSpace(input), err
 }
