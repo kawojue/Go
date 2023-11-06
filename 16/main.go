@@ -20,13 +20,13 @@ func newBill(name string, items map[string]float64, tip *float64) Bill {
 }
 
 func toTitle(s string) string {
-	titledString := []string{}
+	titledStrings := []string{}
 
 	names := strings.Split(s, " ")
 	for _, name := range names {
 		splittedName := strings.Split(name, "")
 		formatted := strings.ToUpper(splittedName[0]) + strings.Join(splittedName[1:], "")
-		titledString = append(titledString, formatted)
+		titledStrings = append(titledStrings, formatted)
 	}
 
 	return strings.Join(titledString, " ")
