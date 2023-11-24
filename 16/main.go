@@ -29,7 +29,7 @@ func toTitle(s string) string {
 		titledStrings = append(titledStrings, formatted)
 	}
 
-	return strings.Join(titledString, " ")
+	return strings.Join(titledStrings, " ")
 }
 
 func main() {
