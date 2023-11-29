@@ -18,8 +18,7 @@ func main() {
 
 	primeArr := []int{2, 3, 5, 7, 11}
 	for _, prime := range primeArr {
-		strPrime := strconv.Itoa(prime)
-		_, err := file.WriteString(strPrime + "\n")
+		_, err := file.WriteString(strconv.Itoa(prime) + "\n")
 
 		if err != nil {
 			log.Fatal(err)
