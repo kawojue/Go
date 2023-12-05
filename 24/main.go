@@ -21,9 +21,9 @@ func main() {
 	fmt.Println(iArgs)
 
 	max := 0
-	for _, i := range iArgs {
-		if i > max {
-			max = i
+	for i := 0; i < len(iArgs); i++ {
+		if iArgs[i] > max {
+			max = iArgs[i]
 		}
 	}
 
