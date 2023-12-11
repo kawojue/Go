@@ -10,5 +10,6 @@ func factorial(n int) int {
 }
 
 func main() {
-	fmt.Println(factorial(2))
+	fmt.Println(factorial(1)) // 1
+	fmt.Println(factorial(5)) // 120
 }
