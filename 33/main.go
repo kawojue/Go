@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	reStr := "The ape was the the apex"
+	reStr := "The ape was at the apex"
 	match, err := regexp.MatchString("(ape [^ ]?)", reStr)
 	if err != nil {
 		fmt.Println(err)
