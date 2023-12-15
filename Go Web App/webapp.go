@@ -91,5 +91,6 @@ func main() {
 	http.HandleFunc("/create", createHandler)
 	http.HandleFunc("/hello", englishHandler)
 	http.HandleFunc("/interact", interactHandler)
-	http.ListenAndServe("http://localhost:2002", nil)
+	err := http.ListenAndServe("http://localhost:2002", nil)
+	log.Fatal(err)
 }
