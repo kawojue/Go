@@ -13,18 +13,18 @@ func main() {
 		fmt.Println(err)
 	}
 
-	file := fmt.Sprintf("%s\\%s", cwd, "data.txt")
-	_, err = os.Stat(file)
+	filePath := fmt.Sprintf("%s\\%s", cwd, "data.txt")
+	_, err = os.Stat(filePath)
 	if errors.Is(err, os.ErrNotExist) {
 		fmt.Println("File does not exist.")
 	} else {
-		f, err := os.OpenFile(file, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0600)
+		file, err := os.OpenFile(filePath, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0600)
 		if err != nil {
 			log.Fatal(err)
 		}
-		defer f.Close()
+		defer file.Close()
 
-		if _, err := f.WriteString("Hello, World!\n"); err != nil {
+		if _, err := file.WriteString("Hello, World!\n"); err != nil {
 			log.Fatal(err)
 		}
 	}
