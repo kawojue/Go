@@ -42,7 +42,6 @@ func getStrings(filename string) []string {
 func write(wr http.ResponseWriter, msg string) {
 	_, err := wr.Write([]byte(msg))
 	errorCheck(err)
-
 }
 
 func englishHandler(wr http.ResponseWriter, req *http.Request) {
@@ -69,5 +68,28 @@ func interactHandler(wr http.ResponseWriter, req *http.Request) {
 }
 
 func newHandler(wr http.ResponseWriter, req *http.Request) {
+	tmpl, err := template.ParseFiles("new.html")
+	errorCheck(err)
+	err = tmpl.Execute(wr, nil)
+	errorCheck(err)
+}
 
+func createHandler(wr http.ResponseWriter, req *http.Request) {
+	todo := req.FormValue("todo")
+	options := os.O_WRONLY | os.O_APPEND | os.O_CREATE
+	file, err := os.OpenFile("todos.txt", options, 0600)
+	errorCheck(err)
+	_, err = fmt.Fprintln(file, todo)
+	errorCheck(err)
+	defer file.Close()
+	http.Redirect(wr, req, "/interact", http.StatusFound)
+}
+
+func main() {
+	http.HandleFunc("/new", newHandler)
+	http.HandleFunc("/hola", spanishHandler)
+	http.HandleFunc("/create", createHandler)
+	http.HandleFunc("/hello", englishHandler)
+	http.HandleFunc("/interact", interactHandler)
+	http.ListenAndServe("http://localhost:2002", nil)
 }
