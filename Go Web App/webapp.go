@@ -25,7 +25,7 @@ func getStrings(filename string) []string {
 
 	file, err := os.Open(filename)
 	if os.IsNotExist(err) {
-		return nil
+		log.Fatal(err)
 	}
 	errorCheck(err)
 	defer file.Close()
@@ -44,16 +44,16 @@ func write(wr http.ResponseWriter, msg string) {
 	errorCheck(err)
 }
 
-func englishHandler(wr http.ResponseWriter, req *http.Request) {
+func greet(wr http.ResponseWriter, req *http.Request) {
 	write(wr, "Hello, World!")
 }
 
-func spanishHandler(wr http.ResponseWriter, req *http.Request) {
+func greetInSpanish(wr http.ResponseWriter, req *http.Request) {
 	write(wr, "Hola, Internet!")
 }
 
 func interactHandler(wr http.ResponseWriter, req *http.Request) {
-	todoValues := getStrings("totos.txt")
+	todoValues := getStrings("todos.txt")
 	fmt.Printf("%#v\n", todoValues)
 
 	tmpl, err := template.ParseFiles("view.html")
@@ -86,11 +86,11 @@ func createHandler(wr http.ResponseWriter, req *http.Request) {
 }
 
 func main() {
+	http.HandleFunc("/", greet)
 	http.HandleFunc("/new", newHandler)
-	http.HandleFunc("/hola", spanishHandler)
+	http.HandleFunc("/hola", greetInSpanish)
 	http.HandleFunc("/create", createHandler)
-	http.HandleFunc("/hello", englishHandler)
 	http.HandleFunc("/interact", interactHandler)
-	err := http.ListenAndServe("http://localhost:2002", nil)
+	err := http.ListenAndServe("localhost:2002", nil)
 	log.Fatal(err)
 }
