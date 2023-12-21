@@ -8,7 +8,7 @@ import (
 
 type Person struct {
 	Name string
-	Age  uint8
+	Age  byte
 }
 
 type ByAge []Person
@@ -30,5 +30,4 @@ func main() {
 	}
 
 	sort.Sort(ByAge(people))
-
 }
