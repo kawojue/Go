@@ -14,7 +14,7 @@ func main() {
 	getSum(1, 2, 3, 4, 5, 6, 7, 8, 9)
 }
 
-func getQuotient(x float64, y float64) (answer float64, err error) {
+func getQuotient(x, y float64) (answer float64, err error) {
 	if y == 0 {
 		return 0, fmt.Errorf("Can't divide by zero!")
 	}
